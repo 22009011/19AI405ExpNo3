@@ -69,35 +69,138 @@ Now, Queue becomes empty, So, terminate these process of iteration.
 
 ## Program:
 ```
-from collections import deque
-from collections import defaultdict
-
+def percept(self, agent):
+    return agent.location, self.status[agent.location]
+def execute_action(self, agent, action): 
+    if action == "Right":
+        agent.location = room_B
+        agent.performance -= 1
+    elif action == "Left":
+        agent.location = room_A
+        agent.performance -= 1
+    elif action == "suck":
+        self.status [agent.location] == "dirty"
+        agent.performance += 10
+    self.status[agent.location] = "clean"
+    
+    
+    
+    
+    
+    
+    
+def SimpleHillClimbing(answer):
+    best-generate_random_solution(answer)
+    best_score=evaluate(best,answer)
+    while True:
+        if best_score==0:
+            print("Score:",best_score," Solution : ","".join(best))
+            break
+        new_solution=mutate_solution(list(best))
+        score=evaluate(new_solution, answer)
+        if score<best_score:
+            best=new_solution
+            best_score=score    
+            
+            
+            
+            
+            
+            
+            
+            
+            
+from itertools import permutations
+def solvecrypt():
+    for perm in permutations (range(10),8):
+        S,E,N,D,M,O,R,Y=perm
+        if S==0 or M==0:
+            continue
+        SEND=S*1000+E*100+N*10+D
+        MORE= M*1000+O*100+R*10+E
+        MONEY=M*10000+O*1000+N*100+E*10+Y
+        if SEND+ MORE==MONEY:
+            print("SEND",SEND)
+            print("MORE ",MORE)
+            print("MONEY",MONEY)
+solvecrypt()            
+    
+    
+    
+from itertools import permutations    
+def solvecrypt():
+    for perm in permutations (range(10),9):
+        C,R,O,S,A,D,N,G,E=perm
+        if C==0 or R==0:
+            continue
+        CROSS=C*10000+R*1000+O*100+S*10+S
+        ROADS=R*10000+O*1000+A*100+D*10+S
+        DANGER=D*100000+A*10000+N*1000+G*100+E*10+R
+        if CROSS+ ROADS==DANGER: 
+            print("CROSS", CROSS) 
+            print("ROADS", ROADS)
+            print ("DANGER", DANGER)
+solvecrypt()    
+    
+    
+    
+    
+    
+from itertools import permutations
+def solvecrypt():
+    for perm in permutations (range(10),6):
+        E,A,T,H,P,L=perm
+        if E==0 or T==0:
+             continue
+        EAT= E*100+A*10+T
+        THAT=T*1000+H*100+A*10+T
+        APPLE=A*10000+P*1000+P*100+L*10+E
+        if EAT + THAT==APPLE:
+            print("EAT", EAT) 
+            print("THAT", THAT)
+            print ("APPLE", APPLE)
+solvecrypt()    
+    
+    
+    
+    
+    
+    
+    
+def dfs(graph,start,visited,path):
+   path.append(start)
+   visited[start]=True
+   for neighbour in graph[start]:
+       if visited[neighbour]==False:
+           dfs(graph,neighbour,visited,path)
+           visited[neighbour]=True
+   return path
+   
+   
+   
+   
+   
+   
+   
+   
 def bfs(graph,start,visited,path):
-queue = deque()
-path.append(start)
-queue.append(start)
-visited[start] = True
-while len(queue) != 0:
-tmpnode = queue.popleft()
-for neighbour in graph[tmpnode]:
-if visited[neighbour] == False:
-path.append(neighbour)
-queue.append(neighbour)
-visited[neighbour] = True
-return path
-
-graph = defaultdict(list)
-v,e = map(int,input().split())
-for i in range(e):
-u,v = map(str,input().split())
-graph[u].append(v)
-graph[v].append(u)
-
-start = 'A'
-path = []
-visited = defaultdict(bool)
-traversedpath = bfs(graph,start,visited,path)
-print(traversedpath)
+    queue = deque()
+    path.append(start)
+    queue.append(start)
+    visited[start] = True
+    while len(queue) != 0:
+        tmpnode = queue.popleft()
+        for neighbour in graph[tmpnode]:
+            if visited[neighbour] == False:
+                path.append(neighbour)
+                queue.append(neighbour)
+                visited[neighbour] = True
+                return path   
+    
+    
+    
+    
+    
 ```
 <hr>
 <h3>Sample Input</h3>
